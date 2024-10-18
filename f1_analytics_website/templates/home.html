@@ -4,17 +4,35 @@
 
 {% block content %}
 <div class="container">
-    <h1>F1 Data Analysis and Visualization</h1>
-    <form action="/analyze" method="POST">
-        <label for="analysis_type">Choose the type of analysis:</label>
-        <select name="analysis_type" id="analysis_type">
-            <option value="">--Select Analysis--</option>
-            <option value="lap_times">Lap Times</option>
-            <option value="pit_stops">Pit Stops</option>
-            <option value="avg_lap_times">Average Lap Times</option>
-            <option value="position_progression">Position Progression</option>
-        </select>
-        <button type="submit">Analyze</button>
+    <h1 class="page-title">F1 Data Analysis and Visualization</h1>
+
+    <!-- Analysis cards instead of a dropdown menu -->
+    <div class="card-container">
+        <div class="card" onclick="submitForm('lap_times')">
+            <i class="fas fa-stopwatch"></i>
+            <h2>Lap Times</h2>
+            <p>Analyze lap times of various drivers.</p>
+        </div>
+        <div class="card" onclick="submitForm('pit_stops')">
+            <i class="fas fa-tools"></i>
+            <h2>Pit Stops</h2>
+            <p>Review pit stop times and strategies.</p>
+        </div>
+        <div class="card" onclick="submitForm('avg_lap_times')">
+            <i class="fas fa-chart-line"></i>
+            <h2>Average Lap Times</h2>
+            <p>Analyze average lap times over races.</p>
+        </div>
+        <div class="card" onclick="submitForm('position_progression')">
+            <i class="fas fa-flag-checkered"></i>
+            <h2>Position Progression</h2>
+            <p>Track driver positions through the race.</p>
+        </div>
+    </div>
+
+    <!-- Hidden form to submit analysis type -->
+    <form id="analysisForm" action="/analyze" method="POST">
+        <input type="hidden" name="analysis_type" id="analysis_type">
     </form>
 </div>
 {% endblock %}
