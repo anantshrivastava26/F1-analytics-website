@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}F1 Data Analysis Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>F1 Data Analysis and Visualization</h1>
+    <form action="/analyze" method="POST">
+        <label for="analysis_type">Choose the type of analysis:</label>
+        <select name="analysis_type" id="analysis_type">
+            <option value="">--Select Analysis--</option>
+            <option value="lap_times">Lap Times</option>
+            <option value="pit_stops">Pit Stops</option>
+            <option value="avg_lap_times">Average Lap Times</option>
+            <option value="position_progression">Position Progression</option>
+        </select>
+        <button type="submit">Analyze</button>
+    </form>
+</div>
+{% endblock %}

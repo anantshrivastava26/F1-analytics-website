@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Analysis Result{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Analysis Result</h1>
+    <div class="result">
+        {{ result|safe }}
+    </div>
+    <a href="/">Back to Home</a>
+</div>
+{% endblock %}
