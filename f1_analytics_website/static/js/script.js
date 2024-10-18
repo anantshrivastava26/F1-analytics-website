@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("JavaScript is loaded and ready.");
-
-    // Function to handle card clicks and submit form
     window.submitForm = function(analysisType) {
         const analysisInput = document.getElementById('analysis_type');
+        const raceSelection = document.getElementById('race_selection').value;
+        
         analysisInput.value = analysisType;
+
+        // Ensure the form gets submitted with race selection and analysis type
         document.getElementById('analysisForm').submit();
     };
 });

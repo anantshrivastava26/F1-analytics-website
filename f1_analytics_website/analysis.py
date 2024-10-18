@@ -3,11 +3,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Function to fetch lap times (same as before)
-def fetch_lap_times():
-    # Ergast API call to fetch lap times
-    url = "http://ergast.com/api/f1/2023/3/laps.json?limit=1000"
+def fetch_lap_times(race_selection):
+    # Ergast API call based on the race selection
+    url = f"http://ergast.com/api/f1/{race_selection}/laps.json?limit=1000"
     response = requests.get(url)
+    
     if response.status_code == 200:
         data = response.json()
         lap_data = []
